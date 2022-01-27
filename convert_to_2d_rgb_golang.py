@@ -2,19 +2,13 @@
 
 """
 imports a png and prints to screen  a 2d array of it's RGB values.
-output is formatted to be pasted into golang code as a 2d array. 
+output is formatted to be pasted into golang code as a 2d array.
 """
 
-from xml.dom import NAMESPACE_ERR
 from PIL import Image
-import sys
-
 import numpy as np
+
 np.set_printoptions(threshold=np.inf)
-
-import pprint
-pp = pprint.PrettyPrinter(width=240, compact=True)
-
 
 image = Image.open('input.png')
 
@@ -24,17 +18,17 @@ im_g = np.array(im_g, dtype=int).transpose()
 im_b = np.array(im_b, dtype=int).transpose()
 
 
-print(f"Rvals = [][]uint8{{")
-for  _, row in enumerate(im_r.astype(int)):
+print('Rvals = [][]uint8{')
+for _, row in enumerate(im_r.astype(int)):
     print(f"{list(row)},".replace('[', '{').replace(']', '}'))
-print(f"}}")
+print('}')
 
-print(f"Gvals = [][]uint8{{")
-for  _, row in enumerate(im_g.astype(int)):
+print('Gvals = [][]uint8{')
+for _, row in enumerate(im_g.astype(int)):
     print(f"{list(row)},".replace('[', '{').replace(']', '}'))
-print(f"}}")
+print('}')
 
-print(f"Bvals = [][]uint8{{")
-for  _, row in enumerate(im_b.astype(int)):
+print('Bvals = [][]uint8{')
+for _, row in enumerate(im_b.astype(int)):
     print(f"{list(row)},".replace('[', '{').replace(']', '}'))
-print(f"}}")
+print('}')
